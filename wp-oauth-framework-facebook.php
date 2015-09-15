@@ -1,9 +1,11 @@
 <?php
+defined( 'ABSPATH' ) or die( "No script kiddies please!" );
+
 /**
- * Facebook login
+ * WPOF Facebook login
  *
- * Plugin Name:       Facebook login
- * Description:       Facebook login
+ * Plugin Name:       WPOF Facebook login
+ * Description:       Enables login and registration using Facebook
  * Version:           1.0.0
  * Author:            Koen Gabriëls
  * Author URI:        http://www.appsaloon.be
@@ -18,6 +20,8 @@ function fbl_add_service( $registered_services ) {
         'use_comma_separated_scope' => false,
         'user_info_endpoint' => 'https://graph.facebook.com/v2.4/me?fields=id,name,email',
         'user_info_endpoint_method' => 'get',
+        'plugin_folder' => __DIR__,
+        'plugin_file' => __FILE__ ,
         'scope' => array( 'email' ),
     );
     $registered_services[] = new \wp_oauth_framework\classes\Oauth_Service( 'Facebook', $config );
