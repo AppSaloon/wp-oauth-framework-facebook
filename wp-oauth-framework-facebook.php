@@ -22,6 +22,7 @@ function fbl_add_service( $registered_services ) {
         'user_info_endpoint_method' => 'get',
         'plugin_folder' => __DIR__,
         'plugin_file' => __FILE__ ,
+        'style_url' => plugins_url( 'css/social-login.css', __FILE__ ),
         'scope' => array( 'email' ),
     );
     $registered_services[] = new \wp_oauth_framework\classes\Oauth_Service( 'Facebook', $config );
