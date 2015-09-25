@@ -34,3 +34,13 @@ add_filter( 'wpof_sanitize_settings_Facebook', 'fbl_sanitize_settings' );
 function fbl_sanitize_settings( $settings ) {
     return $settings;
 }
+
+add_filter( 'wpof_user_info_data_Facebook', 'wpof_facebook_user_info', 10, 1 );
+
+function wpof_facebook_user_info( $user_info ) {
+    return array(
+        'user_id' => $user_info['id'],
+        'name' => $user_info['name'],
+        'email' => '',
+    );
+}
