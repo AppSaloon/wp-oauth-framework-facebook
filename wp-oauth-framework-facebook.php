@@ -38,9 +38,14 @@ function fbl_sanitize_settings( $settings ) {
 add_filter( 'wpof_user_info_data_Facebook', 'wpof_facebook_user_info', 10, 1 );
 
 function wpof_facebook_user_info( $user_info ) {
+    if( isset( $user_info['email'] ) ) {
+        $email = $user_info['email'];
+    } else {
+        $email = '';
+    }
     return array(
         'user_id' => $user_info['id'],
         'name' => $user_info['name'],
-        'email' => '',
+        'email' => $email,
     );
 }
