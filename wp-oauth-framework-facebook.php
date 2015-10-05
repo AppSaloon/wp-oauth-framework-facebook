@@ -18,7 +18,7 @@ function fbl_add_service( $registered_services ) {
         'token_endpoint' => 'https://graph.facebook.com/v2.3/oauth/access_token',
         'credentials_in_request_body' => true,
         'use_comma_separated_scope' => false,
-        'user_info_endpoint' => 'https://graph.facebook.com/v2.4/me?fields=id,name,email',
+        'user_info_endpoint' => 'https://graph.facebook.com/v2.4/me?fields=id,name,email,first_name,last_name',
         'user_info_endpoint_method' => 'get',
         'plugin_folder' => __DIR__,
         'plugin_file' => __FILE__ ,
@@ -47,5 +47,7 @@ function wpof_facebook_user_info( $user_info ) {
         'user_id' => $user_info['id'],
         'name' => $user_info['name'],
         'email' => $email,
+        'first_name' => $user_info['first_name'],
+        'last_name' => $user_info['last_name'],
     );
 }
