@@ -52,9 +52,9 @@ function wpof_facebook_user_info( $user_info ) {
     );
 }
 
-add_filter( 'arpu_github_plugins', 'github_check_for_new_updates' );
+add_filter( 'arpu_github_plugins', 'github_check_for_new_updates_facebook' );
 
-function github_check_for_new_updates( $github_plugins ) {
+function github_check_for_new_updates_facebook( $github_plugins ) {
     $github_plugins[] = array(
         'plugin_file' => __FILE__,
         'github_owner' => 'AppSaloon',
