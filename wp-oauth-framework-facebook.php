@@ -6,7 +6,7 @@ defined( 'ABSPATH' ) or die( "No script kiddies please!" );
  *
  * Plugin Name:       WPOF Facebook login
  * Description:       Enables login and registration using Facebook
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Koen Gabriëls
  * Author URI:        http://www.appsaloon.be
  */
@@ -50,4 +50,16 @@ function wpof_facebook_user_info( $user_info ) {
         'first_name' => $user_info['first_name'],
         'last_name' => $user_info['last_name'],
     );
+}
+
+add_filter( 'arpu_github_plugins', 'github_check_for_new_updates' );
+
+function github_check_for_new_updates( $github_plugins ) {
+    $github_plugins[] = array(
+        'plugin_file' => __FILE__,
+        'github_owner' => 'AppSaloon',
+        'github_project_name' => 'wp-oauth-framework-facebook'
+    );
+
+    return $github_plugins;
 }
